@@ -11,18 +11,100 @@ Más de 10 intentos: “afortunado en el amor!!”.*/
 
 var numeroSecreto; 
 var contadorIntentos;
+var numeroIngresado;
+var mensaje;
 
 function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 100
-	 
+	
+	numeroSecreto = Math.random() * 101;
+	numeroSecreto = Math.floor(numeroSecreto);
+   
+	contadorIntentos = 1;
+   
+	if (numeroSecreto < 1) {
+		numeroSecreto + 1;
+	}
 	
 
 }
 
 function verificar()
 {
-	
-	
+	numeroIngresado = txtIdNumero.value;
+	numeroIngresado = parseInt(numeroIngresado);
 
+	if (numeroIngresado == numeroSecreto) {
+		// Si adivina el número
+		if (contadorIntentos > 9) {
+			mensaje = "Afortunado en el amor!!"
+		} else {
+			if (contadorIntentos > 5 && contadorIntentos < 10) {
+				mensaje = "Falta técnica."
+			} else {
+				if (contadorIntentos == 5) {
+					mensaje = "Usted está en la media.";
+				} else {
+					if (contadorIntentos == 4) {
+						mensaje = "Excelente técnica";
+					} else {
+						if (contadorIntentos == 3) {
+							mensaje = "Esto es suerte.";
+						} else {
+							if (contadorIntentos == 2) {
+								mensaje = "Excelente percepción.";
+							} else {
+								if(contadorIntentos == 1) {
+									mensaje = "Usted es un psíquico.";
+								}
+							}
+						}
+					}
+				} 
+			}
+		}
+
+	} else {
+		// Si no adivina el número
+		contadorIntentos++;
+		if(numeroIngresado < numeroSecreto) {
+			mensaje = "Falta...";
+		  } else {
+			mensaje = "Se pasó...";
+		  }
+	} 
+
+	alert(mensaje);
+
+	txtIdIntentos.value = contadorIntentos;
 }
+
+
+		/*if(contadorIntentos == 1) {
+			mensaje = "Usted es un psíquico.";
+		} else {
+			if (contadorIntentos == 2) {
+				mensaje = "Excelente percepción.";
+			} else {
+				if (contadorIntentos == 3) {
+					mensaje = "Esto es suerte.";
+				} else {
+					if (contadorIntentos == 4) {
+						mensaje = "Excelente técnica";
+					} else {
+						if (contadorIntentos == 5) {
+							mensaje = "Usted está en la media.";
+						} else {
+							if (contadorIntentos > 5 && contadorIntentos < 10){
+								mensaje = "Falta técnica."
+							} else {
+								if (contadorIntentos > 9){
+									mensaje = "Afortunado en el amor!!"
+								}
+							}
+						}
+					}
+				} 
+			}
+		}*/ 

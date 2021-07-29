@@ -11,6 +11,18 @@ function mostrar()
 	acumulador=0;
 	respuesta='si';
 
+	while (respuesta == 'si') {
+
+		numeroIngresado = prompt("Ingrese un número");
+		numeroIngresado = parseInt(numeroIngresado);
+
+		acumulador = acumulador + numeroIngresado;
+		
+		contador++;
+
+		respuesta = prompt("Ingrese 'si' para seguir, otra cosa para no cargar más números.");
+	}
+
 
 	txtIdSuma.value=acumulador;
 	txtIdPromedio.value=acumulador/contador;
